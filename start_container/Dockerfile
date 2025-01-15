@@ -10,3 +10,5 @@ COPY .env /
 
 RUN bash /script.sh
 
+WORKDIR /home/
+
