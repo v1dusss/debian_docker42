@@ -9,7 +9,7 @@ else
 	exit 1
 fi
 
-if [ ! "$DETACHED_MODE" = "True" ]; then
+if [ ! "$DETACHED_MODE" = "True" ] || [ "$START_FROM_SCRATCH" = "True" ] ; then
 	echo "deleting old Image and container"
 	if [ -n "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
 		docker stop $CONTAINER_NAME
