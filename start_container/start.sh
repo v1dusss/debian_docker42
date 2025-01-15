@@ -1,11 +1,13 @@
 #!/bin/bash
 
-
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 # Load .env
-if [ -f .env ]; then
-	source .env
+
+echo "$SCRIPT_DIR/.env"
+if [ -f $SCRIPT_DIR/.env ]; then
+	source $SCRIPT_DIR/.env
 else
-	echo ".env file not found!"
+	echo "$SCRIPT_DIR/.env file not found!"
 	exit 1
 fi
 
@@ -32,7 +34,7 @@ fi
 # build Docker-Images
 echo "Building Docker image: $IMAGE_NAME..."
 # docker build -t $IMAGE_NAME .
-docker build -f ./start_container/Dockerfile -t $IMAGE_NAME .
+docker build -f "$SCRIPT_DIR/Dockerfile" -t "$IMAGE_NAME" $SCRIPT_DIR
 
 if [ $? -ne 0 ]; then
 	echo "Error: Docker image build failed!"

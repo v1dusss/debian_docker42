@@ -5,7 +5,9 @@ RUN apt-get upgrade -y
 RUN apt-get install build-essential valgrind g++ -y
 RUN apt-get install make
 
-COPY start_container/script.sh /
+RUN echo HelloWorld
+
+COPY script.sh /
 COPY .env /
 
 RUN bash /script.sh
