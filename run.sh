@@ -8,7 +8,7 @@ status=$?
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-MAX_WAIT=30
+MAX_WAIT=120
 SECONDS=0
 
 if [ $status -eq 0 ]; then
