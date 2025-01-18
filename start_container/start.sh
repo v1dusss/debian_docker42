@@ -11,6 +11,20 @@ else
 	exit 1
 fi
 
+if ! grep -q "alias $DOCKER_INIT_ALIAS=" ~/.zshrc; then
+	echo "alias $DOCKER_INIT_ALIAS='sh $SCRIPT_DIR/../docker_42toolbox/init_docker.sh'" >> ~/.zshrc
+	source ~/.zshrc
+fi
+if ! grep -q "alias $DOCKER_CLEAN_ALIAS='sh $SCRIPT_DIR/../cleanup_docker.sh'" ~/.zshrc; then
+	echo "alias $DOCKER_CLEAN_ALIAS='sh $SCRIPT_DIR/../cleanup_docker.sh'" >> ~/.zshrc
+	source ~/.zshrc
+fi
+if ! grep -q "alias $DOCKER_RUN_ALIAS='sh $SCRIPT_DIR/../run.sh'" ~/.zshrc; then
+	echo "alias $DOCKER_RUN_ALIAS='sh $SCRIPT_DIR/../run.sh'" >> ~/.zshrc
+	source ~/.zshrc
+fi
+
+
 if [ ! "$DETACHED_MODE" = "True" ] || [ "$START_FROM_SCRATCH" = "True" ] ; then
 	echo "deleting old Image and container"
 	if [ -n "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
