@@ -19,8 +19,13 @@ else
 	read -p "Do you want to run 42toolbox docker_init.sh (y/n): " answer
 	case $answer in
 		[Yy]* )
-			echo "Starting 42toolbox docker_init.sh ..."
-			sh $SCRIPT_DIR/Docker_42toolbox/init_docker.sh
+			if [ "$(uname -s)" = "Darwin" ]; then
+				echo "Starting 42toolbox docker_init.sh ..."
+				sh "$SCRIPT_DIR/Docker_42toolbox/init_docker.sh"
+			else
+				echo "Not on mac, start Docker then run again"
+				exit 0
+			fi
 			while ! docker info >/dev/null 2>&1; do
 				if [ $SECONDS -ge $MAX_WAIT ]; then
 					echo "Docker failed to start within $MAX_WAIT seconds. Exiting."

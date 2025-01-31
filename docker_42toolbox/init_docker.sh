@@ -13,13 +13,23 @@
 
 # https://github.com/alexandregv/42toolbox
 
-# Ensure USER variabe is set
-[ -z "${USER}" ] && export USER=$(whoami)
 
 ################################################################################
 
 # Config
-docker_destination="/goinfre/$USER/docker" #=> Select docker destination (goinfre is a good choice)
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+ABSOLUTE_ENV_PATH=$(cd "$SCRIPT_DIR/../start_container" && pwd)/.env
+
+if [ $$ABSOLUTE_ENV_PATH ]; then
+	source $ABSOLUTE_ENV_PATH
+else
+	echo "$ABSOLUTE_ENV_PATH file not found!"
+	exit 1
+fi
+
+# Ensure USER variabe is set
+[ -z "${USER}" ] && export USER=$(whoami)
+docker_destination="/$DOCKER_DIR/$USER/docker" #=> Select docker destination (goinfre is a good choice)
 
 ################################################################################
 
