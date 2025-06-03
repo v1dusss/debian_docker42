@@ -20,23 +20,29 @@ A customizable **Debian-based Docker container** designed for students of **42**
 
 ## 🧰 How to Use
 
-1. **Configure your environment**  
-For normal use, just edit your username.  
-Open the `.env` file and set your preferred values:
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/Jano844/debian_docker42
+cd debian_docker42
+
+2. **Configure your environment**   
+**Open the `.env` file and set your preferred values:**
+  For normal use, just edit your username. 
 
 - `USERNAME`
 - `WORKDIR`
 - `MODE` (e.g. `detached` or `interactive`)
 - `ALIASES`
 
-2. **Default aliases**:
-- `di`: `docker init` – starts Docker on your machine
-- `dr`: `docker run` – includes Docker init and starts your container
-- `dc`: `docker clean` – cleans up all Docker images, containers, and networks  
-  ⚠️ **Be careful**: `dc` cleans not only this container, but **everything** related to Docker.
-
 3. **First start**  
 Make sure to set up the aliases in your `.zshrc` or equivalent shell config:
 
 ```bash
 ./run.sh
+
+**Default aliases**:
+- `di`: `docker init` – starts Docker on your machine
+- `dr`: `docker run` – includes Docker init and starts your container
+- `dc`: `docker clean` – cleans up all Docker images, containers, and networks  
+  ⚠️ **Be careful**: `dc` cleans not only this container, but **everything** related to Docker.
