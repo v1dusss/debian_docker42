@@ -22,9 +22,9 @@ A customizable **Debian-based Docker container** designed for students of **42**
 
 1. **Clone the repository:**
 
-```bash
-git clone https://github.com/Jano844/debian_docker42
-cd debian_docker42
+  ```bash
+  git clone https://github.com/Jano844/debian_docker42
+  cd debian_docker42
 
 2. **Configure your environment**   
 **Open the `.env` file and set your preferred values:**
