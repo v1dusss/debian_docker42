@@ -37,7 +37,7 @@ A customizable **Debian-based Docker container** designed for students of **42**
 - `ALIASES`
 
 3. **First start**  
-  Run the script to set up aliases
+Run the script to set up aliases
 
   ```bash
   ./run.sh
