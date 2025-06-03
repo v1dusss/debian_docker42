@@ -44,6 +44,7 @@ Run the script to set up aliases
   ```
 
 4. **Now your Container should be ready to use**
+   
   just run the aliases if you changed the or the Default ones
 
 **Default aliases**:
