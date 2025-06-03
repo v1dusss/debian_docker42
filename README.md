@@ -37,11 +37,14 @@ A customizable **Debian-based Docker container** designed for students of **42**
 - `ALIASES`
 
 3. **First start**  
-Make sure to set up the aliases in your `.zshrc` or equivalent shell config:
+  Run the script to set up aliases
 
   ```bash
   ./run.sh
   ```
+
+4. **Now your Container should be ready to use**
+  just run the aliases if you changed the or the Default ones
 
 **Default aliases**:
 - `di`: `docker init` – starts Docker on your machine
