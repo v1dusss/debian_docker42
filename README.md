@@ -12,7 +12,7 @@ A customizable **Debian-based Docker container** designed for students of **42**
   - Choose between **detached mode** or **interactive mode**.
   - Define custom **aliases** for frequently used commands (editable in `.env`).
 - 📦 **Customizable Setup Script**:
-  - Modify `start_container/script.sh` to install development tools and environments (e.g., full Python setup, C leak-checking tools).
+  - **Modify `start_container/script.sh` to install development tools and environments (e.g., full Python setup, C leak-checking tools).**
 - 🔄 **Integration with 42 Toolbox**:
   - Uses `init_docker.sh` from the 42 Toolbox to start or reset the container.
 
@@ -20,17 +20,23 @@ A customizable **Debian-based Docker container** designed for students of **42**
 
 ## 🧰 How to Use
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/Jano844/debian_docker42
-   cd debian_docker42
-2. **Configure your environment**:
-  Open .env and set your preferred:
-  USERNAME
-  WORKDIR
-  MODE (e.g. detached or interactive)
-  ALIASES
-3. **First start**
-   So set up the alias in your zshrc
-  ```bash
-  ./start_container/script.sh
+1. **Configure your environment**  
+For normal use, just edit your username.  
+Open the `.env` file and set your preferred values:
+
+- `USERNAME`
+- `WORKDIR`
+- `MODE` (e.g. `detached` or `interactive`)
+- `ALIASES`
+
+2. **Default aliases**:
+- `di`: `docker init` – starts Docker on your machine
+- `dr`: `docker run` – includes Docker init and starts your container
+- `dc`: `docker clean` – cleans up all Docker images, containers, and networks  
+  ⚠️ **Be careful**: `dc` cleans not only this container, but **everything** related to Docker.
+
+3. **First start**  
+Make sure to set up the aliases in your `.zshrc` or equivalent shell config:
+
+```bash
+./run.sh
