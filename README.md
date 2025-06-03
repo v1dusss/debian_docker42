@@ -22,7 +22,7 @@ A customizable **Debian-based Docker container** designed for students of **42**
 
 1. **Clone the repository**:
    ```bash
-   git clone [<your-repo-url>](https://github.com/Jano844/debian_docker42)
+   git clone https://github.com/Jano844/debian_docker42
    cd debian_docker42
 2. **Configure your environment**:
 - Open .env and set your preferred:
@@ -30,6 +30,7 @@ A customizable **Debian-based Docker container** designed for students of **42**
 - WORKDIR
 - MODE (e.g. detached or interactive)
 - ALIASES
+
   3. **First Start**
   ```bash
   ./start_container/script.sh
