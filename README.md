@@ -40,6 +40,7 @@ A customizable **Debian-based Docker container** designed for students of **42**
 Run the script to set up aliases
 
   ```bash
+  chmod +x run.sh
   ./run.sh
   ```
 
