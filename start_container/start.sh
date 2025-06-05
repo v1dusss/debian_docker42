@@ -66,6 +66,7 @@ if [ "$DETACHED_MODE" = "True" ]; then
 		echo "Waiting for container to start..."
 		sleep 2
 	done
+	docker exec -d $CONTAINER_NAME bash -c "cd && mkdir .ssh && cp /home/.ssh/* .ssh/ && cp /home/.gitconfig .gitconfig"
 	docker exec -it $CONTAINER_NAME bash
 else
 	# removes container and image after terminal is exited
