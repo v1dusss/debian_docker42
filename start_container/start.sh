@@ -61,7 +61,7 @@ echo "Running Docker container with home directory mounted..."
 if [ "$DETACHED_MODE" = "True" ]; then
 	# Runs Container in background can exit Terminal and stays on
 	# to remove container and Image ---> sh cleanup_docker CAUTION!!! this will delete all Docker Images Containers Voulumes and Networks
-	docker run -d --name $CONTAINER_NAME -v $HOST_HOME_DIR:$CONTAINER_HOME_DIR $IMAGE_NAME bash -c "while true; do sleep 3600; done"
+	docker run -d -p $PORTS:$PORTS --name $CONTAINER_NAME -v $HOST_HOME_DIR:$CONTAINER_HOME_DIR $IMAGE_NAME bash -c "while true; do sleep 3600; done"
 	until docker ps -q -f name=$CONTAINER_NAME; do
 		echo "Waiting for container to start..."
 		sleep 2
@@ -70,5 +70,5 @@ if [ "$DETACHED_MODE" = "True" ]; then
 	docker exec -it $CONTAINER_NAME bash
 else
 	# removes container and image after terminal is exited
-	docker run -it --rm --name $CONTAINER_NAME -v $HOST_HOME_DIR:$CONTAINER_HOME_DIR $IMAGE_NAME
+	docker run -it --rm -p $PORTS:$PORTS --name $CONTAINER_NAME -v $HOST_HOME_DIR:$CONTAINER_HOME_DIR $IMAGE_NAME
 fi
